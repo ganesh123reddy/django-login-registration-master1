@@ -21,13 +21,12 @@ class UserManager(models.Manager):
         if postData[user_type]!="faculty" and postData[user_type]!="director" and postData[user_type]!="hod":
             errors['user_type'] = "Not valid User Type!"
                     
-
         return errors
 
 class User(models.Model):
     first_name  = models.CharField(max_length=255)
     last_name   = models.CharField(max_length=255)
-    email       = models.CharField(max_length=255)
+    email       = models.CharField(max_length=255,primary_key=True)
     password    = models.CharField(max_length=255)
     user_type   = models.CharField(max_length=255)
     created_at  = models.DateTimeField(auto_now_add = True)
