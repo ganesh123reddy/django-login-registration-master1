@@ -15,10 +15,15 @@ def checkapply(request):
 	if request.method == "POST":
 		#email=request.session['email']
 		user = User.objects.get(email=request.session['email'])
-		if user.n_compleaves>0:
-			user.n_casualleaves=user.n_compleaves-1
-			user.u_casualleave=user.u_casualleave+1
-			user.save(['n_casualleaves','u_casualleave'])
-			return 
+		if request.POST['leave_type']=="2":
+			if user.n_compleaves>0:
+				user.n_casualleaves=user.n_compleaves-1
+				user.u_casualleave=user.u_casualleave+1
+				user.save(['n_casualleaves','u_casualleave'])
+				context={
+				"user":user
+				}
+				print("Entered and succeded")
+				#return render(request,'register/faculty_home.html',context)
 
 
