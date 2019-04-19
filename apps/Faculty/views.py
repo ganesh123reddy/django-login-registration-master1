@@ -13,3 +13,12 @@ def applypage(request):
 
 def checkapply(request):
 	if request.method == "POST":
+		#email=request.session['email']
+		user = User.objects.get(email=request.session['email'])
+		if user.n_compleaves>0:
+			user.n_casualleaves=user.n_compleaves-1
+			user.u_casualleave=user.u_casualleave+1
+			user.save(['n_casualleaves','u_casualleave'])
+			return 
+
+
