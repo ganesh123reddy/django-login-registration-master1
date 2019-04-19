@@ -65,10 +65,10 @@
                             </div>
                             <div class="form-group">
                                 <label>User Type</label>
-                                <input name="user_type" type="password" class="form-control">
+                                <input name="user_type" type="text" class="form-control">
                                 {% if messages %} 
                                 {%for message in messages %} 
-                                {%if "password" in message.tags %}
+                                {%if "User Type" in message.tags %}
                                 <div class="form-group has-danger">
                                     <div class="form-control-feedback">{{message}}</div>
                                   </div>
