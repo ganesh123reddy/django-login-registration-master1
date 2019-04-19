@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head><!--This is th head section-->
+        <style>
+            #leftalgin
+            {
+                align:left;
+            }
+            table
+            {
+                algin:center;
+                margin-left:30%;
+                width:70%;
+            }
+            th,td
+            {
+
+                text-align: left;
+                padding:20px;
+            }
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            .topnav a {
+                  float: left;
+                  color: #f2f2f2;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  font-size: 17px;
+            }
+
+            .topnav a:hover {
+                  background-color: #ddd;
+                  color: black;
+            }
+
+            .topnav a.active {
+                  background-color: #4CAF50;
+                  color: white;
+            }
+        </style>
+    </head>
+    <body><!--This is the body-->
+          <!--name is what is sent-->
+        <div class="topnav">
+            <a href="apply.html">HOME</a>
+            <a class="active">APPLY</a>
+            <a href="htmllink">HELP</a>
+            <a href="htmllink">IN-PROCESS</a>
+            <a href="htmllink">HISTORY</a>
+            <a href="htmllink">FEEDBACK</a>
+        </div>
+
+        <form action="checkapply/">
+            <table >
+               <tr>
+                    <td class="select">Leave Type</td>
+                    <td id="leftalign">
+                        <select>
+                            <option value="1">Commuting</option>
+                            <option value="2">Casual</option>
+                            <option value="3">Special Casual</option>
+                            <option value="4">Earn Leave</option>
+                            <option value="5">Half Day</option>
+                            <option value="6">Duty Leave</option>
+                            <option value="7">Sick Leave</option>
+                            <option value="8">Maternity</option>
+                            <option value="9">Paternity</option>
+                        </select>
+                    </td>
+               </tr>
+               <tr>
+                    <td>From-Date</td>
+                    <td id="leftalign">
+                        <input type="date" name="fromdate">
+                    </td>
+               </tr>
+               <tr>
+                    <td>To-Date</td>
+                    <td id="leftalign">
+                        <input type="date" name="todate">
+                    </td>
+               </tr>
+               <tr>
+                    <td>Additional Info</td>
+                    <td><input type="text" name="info">
+                    </td>
+               </tr>
+               <tr>
+                    <td>Upload Documents</td>
+                    <td><input type="file"
+                            id="avatar" name="docs"
+                            accept="pdf">
+                    </td>
+               </tr>
+            </table>
+            <input type="submit" style="margin-left:40%; align:center; width: 300px" />
+        </form>
+    </body>
+</html>

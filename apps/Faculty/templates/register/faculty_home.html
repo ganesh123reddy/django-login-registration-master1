@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head><!--This is th head section-->
+        <style>
+            #leftalgin
+            {
+                align:left;
+            }
+            table
+            {
+                algin:center;
+                margin-left:30%;
+                width:70%;
+            }
+            th,td
+            {
+
+                text-align: left;
+                padding:20px;
+            }
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            .topnav a {
+                  float: left;
+                  color: #f2f2f2;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                  font-size: 17px;
+            }
+
+            .topnav a:hover {
+                  background-color: #ddd;
+                  color: black;
+            }
+
+            .topnav a.active {
+                  background-color: #4CAF50;
+                  color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="topnav">
+            <a class="active">HOME</a>
+            <a href="apply/">APPLY</a>
+            <a href="htmllink">IN-PROCESS</a>
+            <a href="htmllink">HISTORY</a>
+            <a href="htmllink">APPROVE</a>
+            <a href="htmllink">HELP</a>
+            <a href="htmllink">FEEDBACK</a>
+        </div>
+        <p>Welcome,
+         {% if user.type == "faculty" %}   
+
+         <strong>{{user.first_name}} {{user.last_name}} {{user.u_type}}</strong></p>
+
+         {% endif %}
+    </body>
+</html>
+
