@@ -1,7 +1,8 @@
 from django.db import models
 
 # Create your models here.
-from ..register import models
+
+#from ..register import models
 
 class Leaves(models.Model):
 	email = models.CharField(max_length=255)
