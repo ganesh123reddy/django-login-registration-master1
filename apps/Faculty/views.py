@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from ..register.models import User
 from django.shortcuts import render, HttpResponse, redirect
+from .models import Leaves
 # Create your views here.
 def faculty(request):
     user = User.objects.get(email=request.session['email'])
@@ -24,6 +25,7 @@ def checkapply(request):
 				context={
 				"user":user
 				}
+
 				#print("Entered and succeded")
 				return render(request,'register/faculty_home.html',context)
 		else:
