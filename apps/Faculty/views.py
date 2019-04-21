@@ -14,24 +14,39 @@ def applypage(request):
 	return render(request,'register/apply.html')
 
 def checkapply(request):
-	if True:
+	#if True:
 		#email=request.session['email']
+	if request.session['email'] is not None:
+	#return render(request,'register/successapply.html')
+		print (request)
 		user = User.objects.get(email=request.session['email'])
 		print(request.POST['leave_type'])
 		if request.POST['leave_type']=="2":
 			#return redirect('/') 		
-			if user.n_casualleaves>0:
-				user.n_casualleaves=user.n_casualleaves-1
+			if user.n_casualleave>0:
+				user.n_casualleave=user.n_casualleave-1
 				user.u_casualleave=user.u_casualleave+1
-				user.save(['n_casualleaves','u_casualleave'])
+				user.save()
 				context={
 				"user":user
+				"leave_type":"CasualLeave"
 				}
-				leave=Leaves.objects.create(email=request.session['email'],leave_type="CasualLeaves",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
+				leave=Leaves.objects.create(email=request.session['email'],leave_type="CasualLeave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
 				leave.save()
 				#print("Entered and succeded")
-				return render(request,'register/Success.html',context)
-		else:
-			return redirect('/')
-				
+				return render(request,'register/successapply.html',context)
+		if request.POST['leave_type']=="1":
+			#return redirect('/') 		
+			if user.n_casualleave>0:
+				user.n_casualleave=user.n_leave-1
+				user.u_casualleave=user.u_leave+1
+				user.save()
+				context={
+				"user":user
+				"leave_type":"CasualLeave"
+				}
+				leave=Leaves.objects.create(email=request.session['email'],leave_type="CasualLeave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
+				leave.save()
+				#print("Entered and succeded")
+				return render(request,'register/successapply.html',context)		
 

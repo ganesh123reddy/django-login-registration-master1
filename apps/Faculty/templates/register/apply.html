@@ -46,7 +46,7 @@
     <body><!--This is the body-->
           <!--name is what is sent-->
         <div class="topnav">
-            <a href="apply.html">HOME</a>
+            <a href="faculty">HOME</a>
             <a class="active">APPLY</a>
             <a href="htmllink">HELP</a>
             <a href="htmllink">IN-PROCESS</a>
@@ -54,7 +54,8 @@
             <a href="htmllink">FEEDBACK</a>
         </div>
 
-        <form action="checkapply/" method="post">
+        <form action="/faculty/cccc" method="post">
+          {% csrf_token %}
             <table >
                <tr>
                     <td class="select">Leave Type</td>
@@ -72,7 +73,7 @@
                         </select>
                     </td>
                </tr>
-               <tr>
+                <tr>
                     <td>From-Date</td>
                     <td id="leftalign">
                         <input type="date" name="fromdate" required>
@@ -95,7 +96,7 @@
                             id="avatar" name="docs"
                             accept="pdf">
                     </td>
-               </tr>
+               </tr> 
             </table>
             <input type="submit" style="margin-left:40%; align:center; width: 300px" />
         </form>
