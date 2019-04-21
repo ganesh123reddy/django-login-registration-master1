@@ -3,6 +3,33 @@ from ..register.models import User
 from django.shortcuts import render, HttpResponse, redirect
 from .models import Leaves
 # Create your views here.
+
+def inpro(request):
+	email=request.session['email']
+	leaves=Leaves.objects.filter(email=email)
+	context={
+	"leaves":leaves
+	}
+	return render(request,"register/in_process.html",context)
+
+
+def approved(request):
+	email=request.session['email']
+	leaves=Leaves.objects.filter(email=email)
+	context={
+	"leaves":leaves
+
+	}
+	return render(request,"register/approved.html",context)
+
+def his(request):
+	email=request.session['email']
+	leaves=Leaves.objects.filter(email=email)
+	context={
+	"leaves":leaves
+	}
+	return render(request,"register/leave_history.html",context)
+
 def faculty(request):
     user = User.objects.get(email=request.session['email'])
     context = {
@@ -142,4 +169,5 @@ def checkapply(request):
 				leave=Leaves.objects.create(email=request.session['email'],leave_type="Special Casual Leave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
 				leave.save()
 				return render(request,'register/successapply.html',context)
-									
+	else:
+		return redirect('/')

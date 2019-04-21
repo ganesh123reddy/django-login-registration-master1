@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Approved Leaves</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+	<h2>Approved Leave Table</h2>
+
+<table>
+  <tr>
+    <th>Leave Type</th>
+    <th>From Date</th>
+    <th>To Date</th>
+    <th>Status</th>
+  </tr>
+{% block content %}
+<tr>
+	{% for x in leaves %}
+  {% if x.status == 1 %}
+    <td>{{ x.leave_type }}</td>
+    <td>{{ x.from_date }}</td>
+    <td>{{ x.to_date }}</td>
+    <td>
+    	"Accepted"
+    	
+    </td>
+    {% endif %}
+  </tr>
+
+{% endfor %}
+{% endblock %}
+</table>
+</body>
+</html>

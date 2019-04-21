@@ -6,8 +6,24 @@
 <body>
 {% block content %}
 {% for l in Leaves %}
-<form action="leavedetails" method="post">
-<p> {{l.email}} --- {{l.leave_type}}   </p>
+<form action="viewdetails" method="post">
+<p> {{l.email}} --- {{l.leave_type}} -- {{l.from_date}} --- {{l.to_date}} ---- 
+
+{% if l.status == 3 %}
+	"Pending"
+{% endif %}  
+
+{% if l.status == 2 %}
+	"Pending"
+{% endif %}  
+{% if l.status == 1 %}
+	"Pending"
+{% endif %}  
+
+
+</p>
+
+
 <input type="submit" name="details">   
 </form>
 
