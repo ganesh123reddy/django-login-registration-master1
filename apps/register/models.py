@@ -18,7 +18,7 @@ class UserManager(models.Manager):
         if len(postData['password']) < 8:
             errors['password'] = "Password is too short!"
 
-        if postData['user_type']!="faculty" and postData[user_type]!="director" and postData[user_type]!="hod":
+        if postData['user_type']!="faculty" or postData[user_type]!="director" or postData[user_type]!="hod":
             errors['user_type'] = "Not valid User Type!"
                     
         return errors
