@@ -18,7 +18,7 @@ def checkapply(request):
 		#email=request.session['email']
 	if request.session['email'] is not None:
 	#return render(request,'register/successapply.html')
-		print (request)
+		#print (request)
 		user = User.objects.get(email=request.session['email'])
 		print(request.POST['leave_type'])
 		if request.POST['leave_type']=="2":
