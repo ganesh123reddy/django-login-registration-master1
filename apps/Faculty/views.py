@@ -35,18 +35,60 @@ def checkapply(request):
 				leave.save()
 				#print("Entered and succeded")
 				return render(request,'register/successapply.html',context)
-		if request.POST['leave_type']=="1":
+		elif request.POST['leave_type']=="1": # Commuting Leave
 			#return redirect('/') 		
-			if user.n_casualleave>0:
-				user.n_casualleave=user.n_leave-1
-				user.u_casualleave=user.u_leave+1
+			if user.n_commutingleave>0:
+				user.n_commutingleave=user.n_commutingleave-1
+				user.u_commutingleave=user.u_commutingleave+1
 				user.save()
 				context={
 				"user":user
-				"leave_type":"CasualLeave"
+				"leave_type":"CommutingLeave"
 				}
-				leave=Leaves.objects.create(email=request.session['email'],leave_type="CasualLeave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
+				leave=Leaves.objects.create(email=request.session['email'],leave_type="CommutingLeave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
 				leave.save()
 				#print("Entered and succeded")
 				return render(request,'register/successapply.html',context)		
 
+		elif request.POST['leave_type']=="3":		#Special Casual Leave
+			#return redirect('/') 		
+			if user.n_specialleave>0:
+				user.n_specialleave=user.n_specialleave-1
+				user.u_specialleave=user.u_specialleave+1
+				user.save()
+				context={
+				"user":user
+				"leave_type":"Special Casual Leave"
+				}
+				leave=Leaves.objects.create(email=request.session['email'],leave_type="Special Casual Leave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
+				leave.save()
+				#print("Entered and succeded")
+				return render(request,'register/successapply.html',context)		
+		elif request.POST['leave_type']=="4":		#Earn Leave
+			#return redirect('/') 		
+			if user.n_Earnleave>0:
+				user.n_Earnleave=user.n_Earnleave-1
+				user.u_Earnleave=user.u_Earnleave+1
+				user.save()
+				context={
+				"user":user
+				"leave_type":"Earn Leave"
+				}
+				leave=Leaves.objects.create(email=request.session['email'],leave_type="Earn Leave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
+				leave.save()
+				#print("Entered and succeded")
+				return render(request,'register/successapply.html',context)		
+		elif request.POST['leave_type']=="5":		#Half Day Leave
+			#return redirect('/') 		
+			if user.n_halfleave>0:
+				user.n_halfleave=user.n_halfleave-1
+				user.u_halfleave=user.u_halfleave+1
+				user.save()
+				context={
+				"user":user
+				"leave_type":"Half Day Leave"
+				}
+				leave=Leaves.objects.create(email=request.session['email'],leave_type="Half Day Leave",from_date=request.POST['fromdate'],to_date=request.POST['todate'])	
+				leave.save()
+				#print("Entered and succeded")
+				return render(request,'register/successapply.html',context)		
