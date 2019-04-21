@@ -32,22 +32,39 @@ class User(models.Model):
     created_at  = models.DateTimeField(auto_now_add = True)
     updated_at  = models.DateTimeField(auto_now = True)
     objects     = UserManager()
+    
     n_casualleave=models.IntegerField(default=30)
     u_casualleave=models.IntegerField(default=0)
+    a_casualleave=models.IntegerField(default=0)
+    
     n_commutingleave=models.IntegerField(default=30)
     u_commutingleave=models.IntegerField(default=0)
+    a_commutingleave=models.IntegerField(default=0)
+    
     n_specialleave=models.IntegerField(default=30)
     u_specialleave=models.IntegerField(default=0)
+    a_specialleave=models.IntegerField(default=0)
+    
     n_Earnleave=models.IntegerField(default=30)
     u_Earnleave=models.IntegerField(default=0)
+    a_Earnleave=models.IntegerField(default=0)
+    
     n_paternityleave=models.IntegerField(default=30)
     u_paternityleave=models.IntegerField(default=0)
+    a_paternityleave=models.IntegerField(default=0)
+    
     n_halfleave=models.IntegerField(default=30)
     u_halfleave=models.IntegerField(default=0)
-    n_Dutyleave=models.IntegerField(default=30)
-    u_Dutyleave=models.IntegerField(default=0)
+    a_halfleave=models.IntegerField(default=0)
+    
+    n_dutyleave=models.IntegerField(default=30)
+    u_dutyleave=models.IntegerField(default=0)
+    a_dutyleave=models.IntegerField(default=0)
+
     n_sickleave=models.IntegerField(default=30)
     u_sickleave=models.IntegerField(default=0)
+    a_sickleave=models.IntegerField(default=0)
+
     n_maternityleave=models.IntegerField(default=30)
     u_maternityleave=models.IntegerField(default=0)
-    
+    a_maternityleave=models.IntegerField(default=0)
