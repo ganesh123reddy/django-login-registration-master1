@@ -48,10 +48,7 @@
     <body><!--This is the body-->
           <!--name is what is sent-->
         <div class="topnav">
-            <a href="htmllink">HOME</a>
-            <a href="htmllink">APPLY</a>
-            <a href="htmllink">IN-PROCESS</a>
-            <a href="htmllink">HISTORY</a>
+            <a href="hod">HOME</a>
             <a class="active">APPROVALS</a>
             <a href="htmllink">HELP</a>
             <a href="htmllink">FEEDBACK</a>
@@ -64,9 +61,9 @@
   <a name="from date" value="date">01-01-01</a><br>
   <a name="to date" value="date">TO</a>
   <a name="to date" value="date">01-01-03</a><br>
-      <form>
-        <input type="radio" name="approval" value="yes" checked> Male<br>
-        <input type="radio" name="approval" value="no"> Female<br>
+      <form action="updatedb/" method="post">
+        <input type="radio" name="approval" value="yes" checked> Accepted <br>
+        <input type="radio" name="approval" value="no"> Rejected <br>
         <input type="submit" name="Submit" >   
       </form>
     </body>

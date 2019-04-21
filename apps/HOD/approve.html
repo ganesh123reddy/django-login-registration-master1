@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Approve Page</title>
+</head>
+<body>
+
+{% for user in users %}
+
+<form>
+
+{% user.email %} 
+
+<input type="submit" style="margin-left:40%; align:center; width: 300px" />  
+
+</form>
+{% endfor %}
+
+
+</body>
+</html>

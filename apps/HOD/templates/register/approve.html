@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Approve Page</title>
+</head>
+<body>
+{% block content %}
+{% for l in Leaves %}
+<form action="leavedetails" method="post">
+<p> {{l.email}} --- {{l.leave_type}}   </p>
+<input type="submit" name="details">   
+</form>
+
+{% endfor %}
+{% endblock %}
+
+</body>
+</html>
