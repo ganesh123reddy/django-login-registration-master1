@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Approve Page</title>
+</head>
+<body>
+
+{% block content %}
+{% for l in Leaves %}
+<form action="/director/viewdetails_dir/" method="post">
+	{% csrf_token %}
+	{% if l.status == 2 %}	
+		<input type="text" name='email' value="{{l.email}}">  </input><br>
+		<input type="text" name="Type" value="{{l.leave_type}}"></input> <br>
+		<input type="text" name="fromdate" value="{{l.from_date}}"></input><br>
+		<input type="text" name="todate" value="{{l.to_date}}"></input> <br>
+		<input type="text" name="status" value="Pending"></input><br>
+		<input type="submit" name="Accept" value="{{l.email}}"></input>   
+		<input type="submit" name="Reject" value="{{l.email}}"></input>   
+	{% endif %}
+</form>
+
+{% endfor %}
+{% endblock %}
+
+</body>
+</html>

@@ -46,12 +46,11 @@
     <body>
         <div class="topnav">
             <a class="active">HOME</a>
-            <a href="#">APPLY</a>
-            <a href="/hod/approve_hod/">APPROVE</a>
+            <a href="/director/approve_dir/">APPROVE</a>
         </div>
         <p>Welcome,
          {% block content %} 
-         {% if user.type == "hod" %}   
+         {% if user.type == "director" %}   
 
          <strong>{{user.first_name}} {{user.last_name}} {{user.u_type}}</strong></p>
 

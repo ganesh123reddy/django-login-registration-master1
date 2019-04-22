@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head><!--This is th head section-->
+		
+		
         <style>
             #leftalgin
             {
@@ -9,8 +11,8 @@
             table
             {
                 algin:center;
-                margin-left:30%;
-                width:70%;
+                width:90%;
+								border:1;
             }
             th,td
             {
@@ -43,20 +45,27 @@
             }
         </style>
     </head>
-    <body>
+    <body><!--This is the body-->
+          <!--name is what is sent-->
         <div class="topnav">
-            <a class="active">HOME</a>
-            <a href="#">APPLY</a>
-            <a href="/hod/approve_hod/">APPROVE</a>
+            <a href="hod">HOME</a>
+            <a class="active">APPROVALS</a>
+            <a href="htmllink">HELP</a>
+            <a href="htmllink">FEEDBACK</a>
         </div>
-        <p>Welcome,
-         {% block content %} 
-         {% if user.type == "hod" %}   
-
-         <strong>{{user.first_name}} {{user.last_name}} {{user.u_type}}</strong></p>
-
-         {% endif %}
-         {% endblock %}
+	<a style="align:center" name="to date" value="date">Name</a>
+  <a name="Name" value="Peru">Ganesh Reddy</a><br>
+  <a name="to date" value="date">Mail-Id</a>
+  <a name="email" value="mail">Ganesh Reddy@guntur.com</a><br>
+  <a name="to date" value="date">FROM</a>
+  <a name="from date" value="date">01-01-01</a><br>
+  <a name="to date" value="date">TO</a>
+  <a name="to date" value="date">01-01-03</a><br>
+      <form action="updatedb/" method="post">
+        <input type="radio" name="approval" value="yes" checked> Accepted <br>
+        <input type="radio" name="approval" value="no"> Rejected <br>
+        <input type="submit" name="Submit" >   
+      </form>
     </body>
 </html>
 

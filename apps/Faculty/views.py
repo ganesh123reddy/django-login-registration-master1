@@ -5,41 +5,61 @@ from .models import Leaves
 # Create your views here.
 
 def inpro(request):
-	email=request.session['email']
-	leaves=Leaves.objects.filter(email=email)
-	context={
-	"leaves":leaves
-	}
-	return render(request,"register/in_process.html",context)
+	if request.session['email'] is not None:
+
+		email=request.session['email']
+		leaves=Leaves.objects.filter(email=email)
+		context={
+		"leaves":leaves
+		}
+		return render(request,"register/in_process.html",context)
+	else:
+		return redirect('/')
+
 
 
 def approved(request):
-	email=request.session['email']
-	leaves=Leaves.objects.filter(email=email)
-	context={
-	"leaves":leaves
+	if request.session['email'] is not None:
+		email=request.session['email']
+		leaves=Leaves.objects.filter(email=email)
+		context={
+		"leaves":leaves
 
-	}
-	return render(request,"register/approved.html",context)
+		}
+		return render(request,"register/approved.html",context)
+	else:
+		return redirect('/')
+
+
 
 def his(request):
-	email=request.session['email']
-	leaves=Leaves.objects.filter(email=email)
-	context={
-	"leaves":leaves
-	}
-	return render(request,"register/leave_history.html",context)
+	if request.session['email'] is not None:
+		email=request.session['email']
+		leaves=Leaves.objects.filter(email=email)
+		context={
+		"leaves":leaves
+		}
+		return render(request, 'register/leave_history.html', context)
+	else:
+		return redirect('/')
+
 
 def faculty(request):
-    user = User.objects.get(email=request.session['email'])
-    context = {
-        "user": user
-    }
-    return render(request, 'register/faculty_home.html', context)
+	if request.session['LoggedIn'] == True:
+	    user = User.objects.get(email=request.session['email'])
+	    context = {
+	        "user": user
+	    }
+	    return render(request, 'register/faculty_home.html', context)
+	else:
+		return redirect('/')
+	
 
 def applypage(request):
-	return render(request,'register/apply.html')
-
+	if request.session['email'] is not None:
+		return render(request,'register/apply.html')
+	else:
+		return redirect('/')
 def checkapply(request):
 	#if True:
 		#email=request.session['email']

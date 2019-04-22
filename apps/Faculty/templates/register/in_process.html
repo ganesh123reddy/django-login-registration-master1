@@ -27,23 +27,15 @@ tr:nth-child(even) {
     <th>Leave Type</th>
     <th>From Date</th>
     <th>To Date</th>
-    <th>Status</th>
   </tr>
 {% block content %}
 <tr>
 	{% for x in leaves %}
+  {% if x.status == 2 or x.status == 3 %}
     <td>{{ x.leave_type }}</td>
     <td>{{ x.from_date }}</td>
     <td>{{ x.to_date }}</td>
-    <td>{% if x.status == 2 %}
-    	"Pending"
-    	{% endif %}
-
-    	{% if x.status == 3 %}
-    	"Pending"
-    	{% endif %}
-
-    </td>
+   {% endif %} 
   </tr>
 
 {% endfor %}

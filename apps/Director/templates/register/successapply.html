@@ -43,20 +43,13 @@
             }
         </style>
     </head>
-    <body>
-        <div class="topnav">
-            <a class="active">HOME</a>
-            <a href="#">APPLY</a>
-            <a href="/hod/approve_hod/">APPROVE</a>
-        </div>
-        <p>Welcome,
-         {% block content %} 
-         {% if user.type == "hod" %}   
+    <body style="background-image:url('2.png'); background-size: 90%;
+  background-repeat: no;">
 
-         <strong>{{user.first_name}} {{user.last_name}} {{user.u_type}}</strong></p>
+      <h1>Leave Application Applied</h1>
+      <input type="button" onclick="window.location='htmllink'" value='Back'></input>
 
-         {% endif %}
-         {% endblock %}
-    </body>
+</body>
 </html>
+
 

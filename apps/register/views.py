@@ -3,6 +3,14 @@ from django.contrib import messages
 import bcrypt
 from .models import User
 
+def logout(request):
+    if request.session['email'] is not None:
+        del request.session['email']
+        request.session['LoggedIn']=False
+
+    return redirect('/')
+
+
 def index(request):
     return render(request, 'register/index.html')
 
@@ -28,10 +36,13 @@ def login(request):
         user = User.objects.filter(email=request.POST['login_email'])[0]
         if (bcrypt.checkpw(request.POST['login_password'].encode(), user.password.encode())):
             request.session['email'] = user.email
+            request.session['LoggedIn'] = True
             if user.user_type == "faculty":
                 return redirect('/faculty')
-            if user.user_type == "hod":
-                return redirect('/hod')     
+            elif user.user_type == "hod":
+                return redirect('/hod')
+            elif user.user_type == "director":
+                return redirect('/director')         
     return redirect('/')
 
 def success(request):
