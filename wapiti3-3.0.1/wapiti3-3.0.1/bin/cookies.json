@@ -1,0 +1,13 @@
+{
+  "127.0.0.1": {
+    "/": {
+      "csrftoken": {
+        "value": "OXJh0696QfBMmHNjwqEVVKhxYMcij8ZsvOSmCJLQb83ZdIcCdVJ6QVwNkH8tceAH",
+        "expires": 1587344499,
+        "secure": false,
+        "port": null,
+        "version": 0
+      }
+    }
+  }
+}
