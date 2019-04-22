@@ -5,7 +5,7 @@ from .models import User
 
 def logout(request):
     if request.session['email'] is not None:
-        del request.session['email']
+        request.session['email'] = None
         request.session['LoggedIn']=False
 
     return redirect('/')
@@ -32,6 +32,7 @@ def register(request):
     return render(request,'register/success.html',context)
 
 def login(request):
+    request.session['email']=None
     if (User.objects.filter(email=request.POST['login_email']).exists()):
         user = User.objects.filter(email=request.POST['login_email'])[0]
         if (bcrypt.checkpw(request.POST['login_password'].encode(), user.password.encode())):

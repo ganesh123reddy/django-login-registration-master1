@@ -45,27 +45,23 @@ def his(request):
 
 
 def faculty(request):
-	if request.session['LoggedIn'] == True:
+	if request.session['email'] != None:
 	    user = User.objects.get(email=request.session['email'])
 	    context = {
 	        "user": user
 	    }
 	    return render(request, 'register/faculty_home.html', context)
-	else:
+	else:	
 		return redirect('/')
 	
 
 def applypage(request):
-	if request.session['email'] is not None:
+	if request.session['email'] != None:
 		return render(request,'register/apply.html')
 	else:
 		return redirect('/')
 def checkapply(request):
-	#if True:
-		#email=request.session['email']
-	if request.session['email'] is not None:
-	#return render(request,'register/successapply.html')
-		#print (request)
+	if request.session['email'] != None:
 		user = User.objects.get(email=request.session['email'])
 		print(request.POST['leave_type'])
 		if request.POST['leave_type']=="2":
