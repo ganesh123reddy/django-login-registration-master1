@@ -15,17 +15,19 @@
 		<input type="text" name="fromdate" value="{{l.from_date}}"></input><br>
 		<input type="text" name="todate" value="{{l.to_date}}"></input> <br>
 		<input type="text" name="status" value="Pending"></input><br>
-		<input type="submit" name="Accept" value="{{l.email}}"></input>   
-		<input type="submit" name="Reject" value="{{l.email}}"></input>   
+		<input type="submit" name="Accept" value="Approve"></input>   
+		<input type="submit" name="Reject" value="Reject"></input>   
 	{% endif %}
 </form>
 
-<a href="/logout">Logout</a>
 
 {% endfor %}
 {% endblock %}
 
-<!>
+<form action="/director" method="get">
+<input type="submit" value="Home Page"
+  name="homepage" id="frm1_submit"/>
+</form>
 
 </body>
 </html>

@@ -43,6 +43,9 @@ def his(request):
 	else:
 		return redirect('/')
 
+def help(request):
+	return render(request,"register/help.html")
+
 
 def faculty(request):
 	if request.session['email'] != None:

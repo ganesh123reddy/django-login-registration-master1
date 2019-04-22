@@ -47,15 +47,16 @@
         <div class="topnav">
             <a class="active">HOME</a>
             <a href="/director/approve_dir/">APPROVE</a>
+            <a href="/logout">LOGOUT</a>
             
         </div>
         <p>Welcome,
          {% block content %} 
-         {% if user.type == "director" %}   
+         
 
-         <strong>{{user.first_name}} {{user.last_name}} {{user.u_type}}</strong></p>
+         <strong>{{user.first_name}} {{user.last_name}} {{user.user_type}}</strong></p>
 
-         {% endif %}
+         
          {% endblock %}
     </body>
 </html>

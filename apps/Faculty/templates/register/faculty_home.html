@@ -52,12 +52,17 @@
             <a href="approve">APPROVED</a>
             <a href="/logout">LOGOUT</a>  
         </div>
+        {% block content %}
+
+
         <p>Welcome,
-         {% if user.type == "faculty" %}   
+         
 
-         <strong>{{user.first_name}} {{user.last_name}} {{user.u_type}}</strong></p>
+         <strong>{{user.first_name}} {{user.last_name}} {{user.user_type}}</strong></p>
 
-         {% endif %}
+         
+
+         {% endblock %}
     </body>
 </html>
 

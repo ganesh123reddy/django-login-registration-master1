@@ -3,7 +3,15 @@ from ..register.models import User
 from ..Faculty.models import Leaves
 # Create your views here.
 def hod(request):
-	return render(request,"register/hod_home.html")
+	if request.session['email'] != None:
+	    user = User.objects.get(email=request.session['email'])
+	    context = {
+	        "user": user
+	    }
+	    return render(request, 'register/hod_home.html', context)
+	else:	
+		return redirect('/')
+
 
 def approvepage(request):
 	leave=Leaves.objects.all()

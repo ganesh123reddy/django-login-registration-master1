@@ -4,7 +4,15 @@ from ..Faculty.models import Leaves
 import datetime
 # Create your views here.
 def director(request):
-	return render(request,"register/director_home.html")
+	if request.session['email'] != None:
+	    user = User.objects.get(email=request.session['email'])
+	    context = {
+	        "user": user
+	    }
+	    if user.
+	    return render(request, 'register/director_home.html', context)
+	else:	
+		return redirect('/')
 
 
 def approvepage_dir(request):
